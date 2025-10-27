@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naveen Arunachalam | Cyber Resume</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* ===== Base ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: radial-gradient(circle at top, #01030a, #000);
+      color: #00ffff;
+      font-family: 'Share Tech Mono', monospace;
+      overflow-x: hidden;
+    }
+    a { color: #00ffff; text-decoration: none; transition: 0.3s; }
+    a:hover { color: #fff; text-shadow: 0 0 8px #00ffff; }
+
+    /* ===== Header ===== */
+    header {
+      position: relative;
+      text-align: center;
+      padding: 60px 20px 80px;
+      border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+      background: rgba(0, 20, 25, 0.3);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 25px rgba(0, 255, 255, 0.08);
+    }
+
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.8rem;
+      color: #00ffff;
+      text-shadow: 0 0 25px #00ffff;
+      letter-spacing: 3px;
+    }
+
+    header h2 {
+      color: #aefeff;
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-top: 10px;
+    }
+
+    /* ===== Download Button (Bottom Right Corner of Header) ===== */
+    .cyber-download-btn {
+      position: absolute;
+      right: 60px;
+      bottom: 25px;
+      background: rgba(0, 255, 255, 0.1);
+      border: 1px solid rgba(0, 255, 255, 0.4);
+      padding: 12px 28px;
+      border-radius: 12px;
+      color: #00ffff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 0 20px rgba(0,255,255,0.15);
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+
+    .cyber-download-btn i {
+      margin-right: 8px;
+    }
+
+    .cyber-download-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0,255,255,0.3), transparent);
+      transition: 0.4s;
+    }
+
+    .cyber-download-btn:hover::before { left: 100%; }
+
+    .cyber-download-btn:hover {
+      background: rgba(0,255,255,0.25);
+      color: #fff;
+      box-shadow: 0 0 35px rgba(0,255,255,0.4);
+      transform: translateY(-2px);
+    }
+
+    /* ===== Section Cards ===== */
+    .section {
+      margin: 60px auto;
+      max-width: 1000px;
+      background: rgba(0, 255, 255, 0.05);
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      border-radius: 12px;
+      padding: 40px 50px;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent, rgba(0,255,255,0.3), transparent 30%);
+      animation: rotate 6s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .section-content { position: relative; z-index: 1; }
+
+    .section h2 {
+      font-family: 'Orbitron', sans-serif;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+      font-size: 1.4rem;
+      text-shadow: 0 0 15px #00ffff;
+    }
+
+    /* ===== Skills Grid ===== */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: rgba(0, 255, 255, 0.07);
+      border-radius: 10px;
+      padding: 15px;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.05);
+      transition: 0.3s;
+    }
+
+    .skill-card:hover { box-shadow: 0 0 25px rgba(0, 255, 255, 0.4); }
+    .skill-card h3 { color: #fff; margin-bottom: 8px; }
+
+    /* ===== Projects ===== */
+    .projects li { margin-bottom: 10px; list-style: none; color: #ccc; }
+
+    /* ===== Education Timeline ===== */
+    .timeline {
+      border-left: 2px solid rgba(0, 255, 255, 0.3);
+      padding-left: 20px;
+    }
+
+    .timeline-item { margin-bottom: 20px; }
+    .timeline-item h4 { color: #fff; }
+    .timeline-item span { color: #aaa; font-size: 0.9rem; }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      padding: 50px 20px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      header {
+        text-align: center;
+        padding: 40px 20px 90px;
+      }
+
+      .cyber-download-btn {
+        right: 50%;
+        bottom: 15px;
+        transform: translateX(50%);
+      }
+
+      header h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>NAVEEN ARUNACHALAM</h1>
+    <h2>Web Developer | Cybersecurity Enthusiast (VAPTGIT
+      ) | Freelancer</h2>
+
+    <!-- Download PDF Button -->
+    <a href="naveen19_resume.pdf" download class="cyber-download-btn">
+      <i class="fas fa-file-download"></i> Download My Resume
+    </a>
+  </header>
+
+  <!-- Professional Summary -->
+  <section class="section">
+    <div class="section-content">
+      <h2><i class="fas fa-terminal"></i> Professional Summary</h2>
+      <p>
+        Final-year Cyber Security student with practical experience building secure full-stack web applications using Flask and Django. 
+        Strong understanding of vulnerability assessment, penetration testing, and network security fundamentals. 
+        Passionate about merging security with backend development to build attack-resistant systems.
+      </p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section">
+    <div class="section-content">
+      <h2><i class="fas fa-microchip"></i> Skills Arsenal</h2>
+      <div class="skills">
+        <div class="skill-card">
+          <h3>Languages</h3>
+          <p>Python, C, Bash, PHP, HTML, CSS, SQL, JavaScript, ReactJS</p>
+        </div>
+        <div class="skill-card">
+          <h3>Frameworks</h3>
+          <p>Flask, Django</p>
+        </div>
+        <div class="skill-card">
+          <h3>Tools</h3>
+          <p>Burp Suite, Nmap, Nessus, Kali Linux, SQLMap</p>
+        </div>
+        <div class="skill-card">
+          <h3>Platforms</h3>
+          <p>Linux (Kali, Ubuntu, Parrot OS), Docker, VMware</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section">
+    <div class="section-content">
+      <h2><i class="fas fa-code"></i> Developed Projects</h2>
+      <ul class="projects">
+        <li>🔹 Responsive portfolio website for an interior firm (HTML, CSS, JS)</li>
+        <li>🔹 Flask Weather App integrating OpenWeatherMap API & Database</li>
+        <li>🔹 Secure Sign-Up/Login System with PHP, MySQL, bcrypt hashing</li>
+        <li>🔹 Custom Vulnerability Scanner Dashboard for security testing</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="section">
+    <div class="section-content">
+      <h2><i class="fas fa-graduation-cap"></i> Education Log</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>B.E. Computer Science (Cyber Security)</h4>
+          <span>Dhanalakshmi Srinivasan College of Engineering, Chennai — CGPA 7.8 (2026)</span>
+        </div>
+        <div class="timeline-item">
+          <h4>HSC</h4>
+          <span>Govt. Boys Hr. Sec. School, Thammampatti — 72%</span>
+        </div>
+        <div class="timeline-item">
+          <h4>SSLC</h4>
+          <span>Govt. Boys Hr. Sec. School, Thammampatti — 83%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 | Designed ❤️ by Naveen Arunachalam
+  </footer>
+
+</body>
+</html>
